@@ -8,11 +8,10 @@ pkgdesc="Rebranded but otherwise stock fork of Pale Moon with the intention of b
 arch=('x86_64' 'aarch64')
 url="https://github.com/DCFUKSURMOM/Phantom-Satellite"
 license=('MPL-2.0')
-depends=('gtk3' 'dbus-glib' 'desktop-file-utils' 'libxt' 'mime-types' 'alsa-lib'
+depends=('gtk3' 'dbus-glib' 'desktop-file-utils' 'ffmpeg' 'libxt' 'mime-types' 'alsa-lib'
          'startup-notification')
-makedepends=('python2' 'unzip' 'zip' 'yasm' 'libpulse' 'git' 'ffmpeg')
-optdepends=('libpulse: PulseAudio audio driver'
-            'ffmpeg: various video and audio support')
+makedepends=('python2' 'unzip' 'zip' 'yasm' 'libpulse' 'git')
+optdepends=('libpulse: PulseAudio audio driver')
 options=(!debug !lto)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DCFUKSURMOM/Phantom-Satellite/archive/refs/tags/v$pkgver.tar.gz"
         mozconfig.in)
