@@ -14,7 +14,7 @@ export DEPLOY_GTK=1
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun ./AppDir/bin/phantomsatellite #/usr/lib/phantomsatellite/phantomsatellite
+quick-sharun ./AppDir/bin/phantomsatellite
 
 # Additional changes can be done in between here
 
