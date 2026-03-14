@@ -43,7 +43,7 @@ prepare() {
   # 3. Create the .mozconfig
   cp ${srcdir}/mozconfig.in .mozconfig
 
-  # 4. Append flags safely (don't repeat this block!)
+  # 4. Append flags
   echo "mk_add_options MOZ_MAKE_FLAGS=\"${MAKEFLAGS}\"" >> .mozconfig
   echo "export CFLAGS=\"${CFLAGS}\"" >> .mozconfig
   echo "export CXXFLAGS=\"${CXXFLAGS}\"" >> .mozconfig
