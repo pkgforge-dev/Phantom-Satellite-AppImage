@@ -13,12 +13,6 @@ echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-# Comment this out if you need an AUR package
-make-aur-package openssl-1.1
-make-aur-package python2
-make-aur-package gtk2
-make-aur-package
-
 # If the application needs to be manually built that has to be done down here
 mkdir -p ./AppDir/bin
 if [ "$ARCH" = "x86_64" ]; then
@@ -32,5 +26,10 @@ if [ "$ARCH" = "x86_64" ]; then
   wget "$TARBALL_LINK" -O /tmp/phantomsatellite.tar.xz
   tar xvf /tmp/phantomsatellite.tar.xz -C /usr/lib
   rm -f /tmp/phantomsatellite.tar.xz
+else
+	make-aur-package openssl-1.1
+	make-aur-package python2
+	make-aur-package gtk2
+	make-aur-package
 fi
 mv -v /usr/lib/phantomsatellite/* ./AppDir/bin
