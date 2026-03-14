@@ -67,5 +67,4 @@ package() {
   pwd
   ls -a
   cp -r phantomsatellite/ "${pkgdir}/usr/lib/phantomsatellite"
-  ln -s "../lib/phantomsatellite/phantomsatellite" "${pkgdir}/usr/bin/phantomsatellite"
 }
