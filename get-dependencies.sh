@@ -6,7 +6,8 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-#pacman -Syu --noconfirm
+pacman -Syu --noconfirm \
+    gtk3
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
@@ -20,4 +21,16 @@ make-aur-package
 
 # If the application needs to be manually built that has to be done down here
 mkdir -p ./AppDir/bin
+if [ "$ARCH" = "x86_64" ]; then
+  echo "Getting Phantom Satellite binary..."
+  echo "---------------------------------------------------------------"
+  TARBALL_LINK=$(wget --retry-connrefused --tries=30 \
+	  https://api.github.com/repos/DCFUKSURMOM/Phantom-Satellite/releases/latest -O - \
+	  | sed 's/[()",{} ]/\n/g' | grep -o -m 1 'https.*releases.*linux-x86_64-gtk3.*tar.xz'
+  )
+  echo "$TARBALL_LINK" | awk -F'/' '{print $(NF-1)}' > ~/version
+  wget "$TARBALL_LINK" -O /tmp/phantomsatellite.tar.xz
+  tar xvf /tmp/phantomsatellite.tar.xz -C /usr/lib
+  rm -f /tmp/phantomsatellite.tar.xz
+fi
 mv -v /usr/lib/phantomsatellite/* ./AppDir/bin
