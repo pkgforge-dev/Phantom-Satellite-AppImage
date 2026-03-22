@@ -11,6 +11,7 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=https://raw.githubusercontent.com/DCFUKSURMOM/Phantom-Satellite/refs/heads/master/phantomsatellite/branding/unofficial/mozicon128.png
 export DESKTOP=https://raw.githubusercontent.com/DCFUKSURMOM/Phantom-Satellite/refs/heads/master/phantomsatellite/branding/unofficial/browser.desktop
 export DEPLOY_GTK=1
+export GTK_DIR=gtk-3.0
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
