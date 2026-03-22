@@ -18,13 +18,6 @@ source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DCFUKSURMOM/Phantom-Sat
 sha256sums=('201b435222892c150f53b847707baddbf26fd035c3fe32f96f1c91fe13f6b397'
             'SKIP')
 
-case "${CARCH}" in
-  aarch64)
-    export CFLAGS="${CFLAGS} -march=armv8-a+crypto"
-    export LDFLAGS="${CFLAGS} -march=armv8-a+crypto"
-  ;;
-esac
-
 prepare() {
   cd Phantom-Satellite-$pkgver
 
