@@ -34,6 +34,7 @@ else
 	make-aur-package openssl-1.1
 	PRE_BUILD_CMDS='sed -i "s/^check() {/disabled_check() {/" ./PKGBUILD' make-aur-package python2
 	make-aur-package gtk2
+	sed -i -e 's|-O3|-O2|' /etc/makepkg.conf
 	make-aur-package
 fi
 mv -v /usr/lib/phantomsatellite/* ./AppDir/bin
