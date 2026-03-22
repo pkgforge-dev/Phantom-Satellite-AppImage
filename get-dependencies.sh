@@ -31,8 +31,8 @@ if [ "$ARCH" = "x86_64" ]; then
   tar xvf /tmp/phantomsatellite.tar.xz -C /usr/lib
   rm -f /tmp/phantomsatellite.tar.xz
 else
-	PRE_BUILD_CMDS='sed -i "s/^options=(/options=(!check /" ./PKGBUILD' make-aur-package openssl-1.1
-	PRE_BUILD_CMDS='sed -i "s/^options=(/options=(!check /" ./PKGBUILD' make-aur-package python2
+	PRE_BUILD_CMDS='echo "options=(!check)" >> ./PKGBUILD' make-aur-package openssl-1.1
+	PRE_BUILD_CMDS='echo "options=(!check)" >> ./PKGBUILD' make-aur-package python2
 	make-aur-package gtk2
 	sed -i -e 's|-O3|-O2|' /etc/makepkg.conf
 	make-aur-package
