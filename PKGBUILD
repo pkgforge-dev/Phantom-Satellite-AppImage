@@ -21,15 +21,9 @@ sha256sums=('201b435222892c150f53b847707baddbf26fd035c3fe32f96f1c91fe13f6b397'
 prepare() {
   cd Phantom-Satellite-$pkgver
 
-  export CFLAGS="${CFLAGS/-Werror=format-security/}"
-  export CXXFLAGS="${CXXFLAGS/-Werror=format-security/}"
-  export CFLAGS="${CFLAGS/-fstack-clash-protection/}"
-  export CXXFLAGS="${CXXFLAGS/-fstack-clash-protection/}"
-  export CFLAGS="${CFLAGS/-D_FORTIFY_SOURCE=3/-D_FORTIFY_SOURCE=2}"
-  export CXXFLAGS="${CXXFLAGS/-D_FORTIFY_SOURCE=3/-D_FORTIFY_SOURCE=2}"
-  export CXXFLAGS="${CXXFLAGS/-fexceptions/-fno-exceptions}"
-  export CXXFLAGS="${CXXFLAGS/-fno-omit-frame-pointer/}"
-  
+  export CFLAGS="-fstack-protector-strong"
+  export CXXFLAGS="$CFLAGS -fno-exceptions -fno-rtti"
+
   cp ${srcdir}/mozconfig.in .mozconfig
 
   echo "mk_add_options MOZ_MAKE_FLAGS=\"${MAKEFLAGS}\"" >> .mozconfig
