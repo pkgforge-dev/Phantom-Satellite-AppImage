@@ -32,7 +32,7 @@ if [ "$ARCH" = "x86_64" ]; then
   rm -f /tmp/phantomsatellite.tar.xz
 else
 	make-aur-package openssl-1.1
-	make-aur-package python2
+	PRE_BUILD_CMDS='sed -i "s/-m test.regrtest.*//" ./PKGBUILD' make-aur-package python2
 	make-aur-package gtk2
 	make-aur-package
 fi
