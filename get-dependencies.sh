@@ -13,7 +13,8 @@ pacman -Syu --noconfirm  \
 	libdbusmenu-gtk3 	 \
 	libdbusmenu-glib	 \
 	mime-types 			 \
-    startup-notification
+    startup-notification \
+	ttf-dejavu
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
